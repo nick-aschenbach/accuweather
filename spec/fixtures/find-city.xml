@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<adc_database
+  xmlns="http://www.accuweather.com">
+  <citylist us="1" intl="1" extra_cities="0">
+    <location cnt="1" city="Vancouver" state="Canada (British Columbia)" location="cityId:53286" latitude="49.2448" longitude="-123.1154"/>
+    <location cnt="2" city="Vancouver" state="Washington" location="cityId:331419" latitude="45.63873" longitude="-122.6615"/>
+  </citylist>
+  <copyright>Copyright 2015 AccuWeather.com</copyright>
+  <use>This document is intended only for use by authorized licensees of AccuWeather.com. Unauthorized use is prohibited. All Rights Reserved.</use>
+  <product>samsung mobile</product>
+  <redistribution>Redistribution Prohibited.</redistribution>
+</adc_database>

@@ -1,0 +1,464 @@
+<?xml version="1.0"  encoding="utf-8"?>
+<adc_database
+  xmlns="http://www.accuweather.com">
+  <units>
+    <temp>F</temp>
+    <dist>MI</dist>
+    <speed>MPH</speed>
+    <pres>IN</pres>
+    <prec>IN</prec>
+  </units>
+  <local>
+    <city>Winter Park</city>
+    <state>Colorado</state>
+    <lat>39.89166</lat>
+    <lon>-105.7631</lon>
+    <time>21:14</time>
+    <timeZone>-7</timeZone>
+    <obsDaylight>
+      0
+    </obsDaylight>
+    <currentGmtOffset>-7</currentGmtOffset>
+    <timeZoneAbbreviation>MST</timeZoneAbbreviation>
+  </local>
+  <watchwarnareas zone="COZ034" county="COC049" isactive="0">
+    <url>http://www.accuweather.com/m/en-us/US/CO/Winter Park/storm.aspx?p=samsungmobile&amp;cityId=347805</url>
+  </watchwarnareas>
+  <currentconditions>
+    <url>http://www.accuweather.com/m/en-us/US/CO/Winter Park/current.aspx?p=samsungmobile&amp;cityId=347805</url>
+    <observationtime>9:14 PM</observationtime>
+    <pressure state="Steady">30.12</pressure>
+    <temperature>26</temperature>
+    <realfeel>26</realfeel>
+    <humidity>44%</humidity>
+    <weathertext>Partly cloudy</weathertext>
+    <weathericon>35</weathericon>
+    <windgusts>11</windgusts>
+    <windspeed>8</windspeed>
+    <winddirection>SE</winddirection>
+    <visibility>8</visibility>
+    <precip>0.00</precip>
+    <uvindex index="0">Low</uvindex>
+    <dewpoint>7</dewpoint>
+    <cloudcover>33%</cloudcover>
+  </currentconditions>
+  <planets>
+    <sun rise="6:57 AM" set="4:42 PM"/>
+    <moon rise="11/23/2015 3:30:00 PM" set="11/24/2015 5:15:00 AM"/>
+    <mercury rise="2:14 PM" set="11:48 PM"/>
+    <venus rise="10:09 AM" set="9:46 PM"/>
+    <mars rise="9:21 AM" set="9:20 PM"/>
+    <jupiter rise="8:01 AM" set="8:41 PM"/>
+    <saturn rise="2:22 PM" set="12:10 AM"/>
+    <uranus rise="9:36 PM" set="10:23 AM"/>
+    <neptune rise="8:01 PM" set="7:03 AM"/>
+    <pluto rise="5:06 PM" set="2:44 AM"/>
+  </planets>
+  <moon>
+    <phase date="11/23/2015" text="Waxing Gibbous" >11</phase>
+    <phase date="11/24/2015" text="Waxing Gibbous" >12</phase>
+    <phase date="11/25/2015" text="Full" >14</phase>
+    <phase date="11/26/2015" text="Full" >14</phase>
+    <phase date="11/27/2015" text="Waning Gibbous" >15</phase>
+    <phase date="11/28/2015" text="Waning Gibbous" >16</phase>
+    <phase date="11/29/2015" text="Waning Gibbous" >17</phase>
+    <phase date="11/30/2015" text="Waning Gibbous" >18</phase>
+    <phase date="12/1/2015" text="Waning Gibbous" >19</phase>
+    <phase date="12/2/2015" text="Waning Gibbous" >20</phase>
+    <phase date="12/3/2015" text="Last" >21</phase>
+    <phase date="12/4/2015" text="Last" >21</phase>
+    <phase date="12/5/2015" text="Waning Crescent" >22</phase>
+    <phase date="12/6/2015" text="Waning Crescent" >23</phase>
+    <phase date="12/7/2015" text="Waning Crescent" >24</phase>
+    <phase date="12/8/2015" text="Waning Crescent" >25</phase>
+    <phase date="12/9/2015" text="Waning Crescent" >26</phase>
+    <phase date="12/10/2015" text="Waning Crescent" >27</phase>
+    <phase date="12/11/2015" text="New" >1</phase>
+    <phase date="12/12/2015" text="New" >1</phase>
+    <phase date="12/13/2015" text="New" >1</phase>
+    <phase date="12/14/2015" text="Waxing Crescent" >2</phase>
+    <phase date="12/15/2015" text="Waxing Crescent" >3</phase>
+    <phase date="12/16/2015" text="Waxing Crescent" >4</phase>
+    <phase date="12/17/2015" text="Waxing Crescent" >5</phase>
+    <phase date="12/18/2015" text="First" >7</phase>
+    <phase date="12/19/2015" text="First" >7</phase>
+    <phase date="12/20/2015" text="Waxing Gibbous" >8</phase>
+    <phase date="12/21/2015" text="Waxing Gibbous" >9</phase>
+    <phase date="12/22/2015" text="Waxing Gibbous" >10</phase>
+    <phase date="12/23/2015" text="Waxing Gibbous" >11</phase>
+    <phase date="12/24/2015" text="Waxing Gibbous" >12</phase>
+  </moon>
+  <images>
+    <url>http://www.accuweather.com/m/en-us/US/CO/Winter Park/radar.aspx?p=samsungmobile&amp;cityId=347805</url>
+    <radar>
+      http://sirocco.accuweather.com/nx_mosaic_108x81c/re/inmreCO_.gif
+    </radar>
+  </images>
+  <mapSpace>
+    <image resolution="480x480" url="http://vortex.accuweather.com/adc2004/mapspace/usradar/480x480/CO_.png"/>
+  </mapSpace>
+  <forecast>
+    <url>http://www.accuweather.com/m/en-us/US/CO/Winter Park/forecast.aspx?p=samsungmobile&amp;cityId=347805</url>
+    <day number="1">
+      <url>http://www.accuweather.com/m/en-us/US/CO/Winter Park/details1.aspx?p=samsungmobile&amp;cityId=347805</url>
+      <obsdate>11/23/2015</obsdate>
+      <daycode>Monday</daycode>
+      <sunrise>6:57 AM</sunrise>
+      <sunset>4:42 PM</sunset>
+      <daytime>
+        <txtshort>Partly sunny</txtshort>
+        <txtlong>Partly sunny</txtlong>
+        <weathericon>03</weathericon>
+        <hightemperature>44</hightemperature>
+        <lowtemperature>11</lowtemperature>
+        <realfeelhigh>47</realfeelhigh>
+        <realfeellow>3</realfeellow>
+        <windspeed>5</windspeed>
+        <winddirection>W</winddirection>
+        <windgust>11</windgust>
+        <maxuv>3</maxuv>
+        <rainamount>0.00</rainamount>
+        <snowamount>0.0</snowamount>
+        <iceamount>0.00</iceamount>
+        <precipamount>0.00</precipamount>
+        <tstormprob>0</tstormprob>
+        <rainProbability>0</rainProbability>
+        <snowProbability>0</snowProbability>
+        <iceProbability>0</iceProbability>
+        <precipitationProbability>0</precipitationProbability>
+      </daytime>
+      <nighttime>
+        <txtshort>Mainly clear</txtshort>
+        <txtlong>Mainly clear</txtlong>
+        <weathericon>34</weathericon>
+        <hightemperature>44</hightemperature>
+        <lowtemperature>11</lowtemperature>
+        <realfeelhigh>30</realfeelhigh>
+        <realfeellow>13</realfeellow>
+        <windspeed>3</windspeed>
+        <winddirection>W</winddirection>
+        <windgust>7</windgust>
+        <maxuv>3</maxuv>
+        <rainamount>0.00</rainamount>
+        <snowamount>0.0</snowamount>
+        <iceamount>0.00</iceamount>
+        <precipamount>0.00</precipamount>
+        <tstormprob>0</tstormprob>
+        <rainProbability>0</rainProbability>
+        <snowProbability>0</snowProbability>
+        <iceProbability>0</iceProbability>
+        <precipitationProbability>0</precipitationProbability>
+      </nighttime>
+    </day>
+    <day number="2">
+      <url>http://www.accuweather.com/m/en-us/US/CO/Winter Park/details2.aspx?p=samsungmobile&amp;cityId=347805</url>
+      <obsdate>11/24/2015</obsdate>
+      <daycode>Tuesday</daycode>
+      <sunrise>6:58 AM</sunrise>
+      <sunset>4:41 PM</sunset>
+      <daytime>
+        <txtshort>Mostly sunny</txtshort>
+        <txtlong>Mostly sunny</txtlong>
+        <weathericon>02</weathericon>
+        <hightemperature>39</hightemperature>
+        <lowtemperature>8</lowtemperature>
+        <realfeelhigh>41</realfeelhigh>
+        <realfeellow>16</realfeellow>
+        <windspeed>4</windspeed>
+        <winddirection>W</winddirection>
+        <windgust>8</windgust>
+        <maxuv>3</maxuv>
+        <rainamount>0.00</rainamount>
+        <snowamount>0.0</snowamount>
+        <iceamount>0.00</iceamount>
+        <precipamount>0.00</precipamount>
+        <tstormprob>0</tstormprob>
+        <rainProbability>0</rainProbability>
+        <snowProbability>0</snowProbability>
+        <iceProbability>0</iceProbability>
+        <precipitationProbability>0</precipitationProbability>
+      </daytime>
+      <nighttime>
+        <txtshort>Clear to partly cloudy</txtshort>
+        <txtlong>Clear to partly cloudy</txtlong>
+        <weathericon>34</weathericon>
+        <hightemperature>39</hightemperature>
+        <lowtemperature>8</lowtemperature>
+        <realfeelhigh>28</realfeelhigh>
+        <realfeellow>11</realfeellow>
+        <windspeed>3</windspeed>
+        <winddirection>W</winddirection>
+        <windgust>4</windgust>
+        <maxuv>3</maxuv>
+        <rainamount>0.00</rainamount>
+        <snowamount>0.0</snowamount>
+        <iceamount>0.00</iceamount>
+        <precipamount>0.00</precipamount>
+        <tstormprob>0</tstormprob>
+        <rainProbability>0</rainProbability>
+        <snowProbability>0</snowProbability>
+        <iceProbability>0</iceProbability>
+        <precipitationProbability>1</precipitationProbability>
+      </nighttime>
+    </day>
+    <day number="3">
+      <url>http://www.accuweather.com/m/en-us/US/CO/Winter Park/details3.aspx?p=samsungmobile&amp;cityId=347805</url>
+      <obsdate>11/25/2015</obsdate>
+      <daycode>Wednesday</daycode>
+      <sunrise>6:59 AM</sunrise>
+      <sunset>4:41 PM</sunset>
+      <daytime>
+        <txtshort>Partly sunny</txtshort>
+        <txtlong>Intervals of clouds and sunshine</txtlong>
+        <weathericon>04</weathericon>
+        <hightemperature>38</hightemperature>
+        <lowtemperature>18</lowtemperature>
+        <realfeelhigh>41</realfeelhigh>
+        <realfeellow>9</realfeellow>
+        <windspeed>4</windspeed>
+        <winddirection>SSE</winddirection>
+        <windgust>7</windgust>
+        <maxuv>3</maxuv>
+        <rainamount>0.00</rainamount>
+        <snowamount>0.0</snowamount>
+        <iceamount>0.00</iceamount>
+        <precipamount>0.00</precipamount>
+        <tstormprob>1</tstormprob>
+        <rainProbability>4</rainProbability>
+        <snowProbability>3</snowProbability>
+        <iceProbability>0</iceProbability>
+        <precipitationProbability>6</precipitationProbability>
+      </daytime>
+      <nighttime>
+        <txtshort>Intermittent snow</txtshort>
+        <txtlong>Intermittent snow, accumulating 1-3 inches</txtlong>
+        <weathericon>22</weathericon>
+        <hightemperature>38</hightemperature>
+        <lowtemperature>18</lowtemperature>
+        <realfeelhigh>24</realfeelhigh>
+        <realfeellow>17</realfeellow>
+        <windspeed>4</windspeed>
+        <winddirection>SE</winddirection>
+        <windgust>6</windgust>
+        <maxuv>3</maxuv>
+        <rainamount>0.00</rainamount>
+        <snowamount>1.7</snowamount>
+        <iceamount>0.00</iceamount>
+        <precipamount>0.09</precipamount>
+        <tstormprob>5</tstormprob>
+        <rainProbability>0</rainProbability>
+        <snowProbability>65</snowProbability>
+        <iceProbability>0</iceProbability>
+        <precipitationProbability>65</precipitationProbability>
+      </nighttime>
+    </day>
+    <day number="4">
+      <url>http://www.accuweather.com/m/en-us/US/CO/Winter Park/details4.aspx?p=samsungmobile&amp;cityId=347805</url>
+      <obsdate>11/26/2015</obsdate>
+      <daycode>Thursday</daycode>
+      <sunrise>7:00 AM</sunrise>
+      <sunset>4:40 PM</sunset>
+      <daytime>
+        <txtshort>Colder with a little snow</txtshort>
+        <txtlong>Colder with snow at times, accumulating 1-3 inches; storm total snowfall 3-6 inches</txtlong>
+        <weathericon>22</weathericon>
+        <hightemperature>29</hightemperature>
+        <lowtemperature>9</lowtemperature>
+        <realfeelhigh>28</realfeelhigh>
+        <realfeellow>18</realfeellow>
+        <windspeed>4</windspeed>
+        <winddirection>ESE</winddirection>
+        <windgust>6</windgust>
+        <maxuv>2</maxuv>
+        <rainamount>0.00</rainamount>
+        <snowamount>2.0</snowamount>
+        <iceamount>0.00</iceamount>
+        <precipamount>0.10</precipamount>
+        <tstormprob>5</tstormprob>
+        <rainProbability>0</rainProbability>
+        <snowProbability>75</snowProbability>
+        <iceProbability>0</iceProbability>
+        <precipitationProbability>75</precipitationProbability>
+      </daytime>
+      <nighttime>
+        <txtshort>Cloudy</txtshort>
+        <txtlong>Cloudy</txtlong>
+        <weathericon>07</weathericon>
+        <hightemperature>29</hightemperature>
+        <lowtemperature>9</lowtemperature>
+        <realfeelhigh>19</realfeelhigh>
+        <realfeellow>9</realfeellow>
+        <windspeed>3</windspeed>
+        <winddirection>ESE</winddirection>
+        <windgust>5</windgust>
+        <maxuv>2</maxuv>
+        <rainamount>0.00</rainamount>
+        <snowamount>0.0</snowamount>
+        <iceamount>0.00</iceamount>
+        <precipamount>0.00</precipamount>
+        <tstormprob>1</tstormprob>
+        <rainProbability>0</rainProbability>
+        <snowProbability>25</snowProbability>
+        <iceProbability>0</iceProbability>
+        <precipitationProbability>25</precipitationProbability>
+      </nighttime>
+    </day>
+    <day number="5">
+      <url>http://www.accuweather.com/m/en-us/US/CO/Winter Park/details5.aspx?p=samsungmobile&amp;cityId=347805</url>
+      <obsdate>11/27/2015</obsdate>
+      <daycode>Friday</daycode>
+      <sunrise>7:01 AM</sunrise>
+      <sunset>4:40 PM</sunset>
+      <daytime>
+        <txtshort>Areas of low clouds and cold</txtshort>
+        <txtlong>Sun and areas of low clouds and cold</txtlong>
+        <weathericon>06</weathericon>
+        <hightemperature>25</hightemperature>
+        <lowtemperature>11</lowtemperature>
+        <realfeelhigh>30</realfeelhigh>
+        <realfeellow>11</realfeellow>
+        <windspeed>3</windspeed>
+        <winddirection>ESE</winddirection>
+        <windgust>5</windgust>
+        <maxuv>2</maxuv>
+        <rainamount>0.00</rainamount>
+        <snowamount>0.0</snowamount>
+        <iceamount>0.00</iceamount>
+        <precipamount>0.00</precipamount>
+        <tstormprob>1</tstormprob>
+        <rainProbability>0</rainProbability>
+        <snowProbability>24</snowProbability>
+        <iceProbability>0</iceProbability>
+        <precipitationProbability>25</precipitationProbability>
+      </daytime>
+      <nighttime>
+        <txtshort>Mostly cloudy</txtshort>
+        <txtlong>Mostly cloudy</txtlong>
+        <weathericon>38</weathericon>
+        <hightemperature>25</hightemperature>
+        <lowtemperature>11</lowtemperature>
+        <realfeelhigh>15</realfeelhigh>
+        <realfeellow>11</realfeellow>
+        <windspeed>3</windspeed>
+        <winddirection>SE</winddirection>
+        <windgust>5</windgust>
+        <maxuv>2</maxuv>
+        <rainamount>0.00</rainamount>
+        <snowamount>0.0</snowamount>
+        <iceamount>0.00</iceamount>
+        <precipamount>0.00</precipamount>
+        <tstormprob>1</tstormprob>
+        <rainProbability>0</rainProbability>
+        <snowProbability>14</snowProbability>
+        <iceProbability>0</iceProbability>
+        <precipitationProbability>14</precipitationProbability>
+      </nighttime>
+    </day>
+    <day number="6">
+      <url>http://www.accuweather.com/m/en-us/US/CO/Winter Park/details6.aspx?p=samsungmobile&amp;cityId=347805</url>
+      <obsdate>11/28/2015</obsdate>
+      <daycode>Saturday</daycode>
+      <sunrise>7:02 AM</sunrise>
+      <sunset>4:40 PM</sunset>
+      <daytime>
+        <txtshort>Mostly cloudy and not as cold</txtshort>
+        <txtlong>Not as cold with clouds limiting sun</txtlong>
+        <weathericon>06</weathericon>
+        <hightemperature>36</hightemperature>
+        <lowtemperature>17</lowtemperature>
+        <realfeelhigh>41</realfeelhigh>
+        <realfeellow>15</realfeellow>
+        <windspeed>3</windspeed>
+        <winddirection>W</winddirection>
+        <windgust>5</windgust>
+        <maxuv>2</maxuv>
+        <rainamount>0.00</rainamount>
+        <snowamount>0.0</snowamount>
+        <iceamount>0.00</iceamount>
+        <precipamount>0.00</precipamount>
+        <tstormprob>1</tstormprob>
+        <rainProbability>0</rainProbability>
+        <snowProbability>25</snowProbability>
+        <iceProbability>0</iceProbability>
+        <precipitationProbability>25</precipitationProbability>
+      </daytime>
+      <nighttime>
+        <txtshort>A little snow at times late</txtshort>
+        <txtlong>Mostly cloudy; a couple of evening flurries followed by a little snow at times late</txtlong>
+        <weathericon>22</weathericon>
+        <hightemperature>36</hightemperature>
+        <lowtemperature>17</lowtemperature>
+        <realfeelhigh>25</realfeelhigh>
+        <realfeellow>17</realfeellow>
+        <windspeed>3</windspeed>
+        <winddirection>WSW</winddirection>
+        <windgust>6</windgust>
+        <maxuv>2</maxuv>
+        <rainamount>0.00</rainamount>
+        <snowamount>0.9</snowamount>
+        <iceamount>0.00</iceamount>
+        <precipamount>0.05</precipamount>
+        <tstormprob>1</tstormprob>
+        <rainProbability>0</rainProbability>
+        <snowProbability>55</snowProbability>
+        <iceProbability>10</iceProbability>
+        <precipitationProbability>55</precipitationProbability>
+      </nighttime>
+    </day>
+    <day number="7">
+      <url>http://www.accuweather.com/m/en-us/US/CO/Winter Park/details7.aspx?p=samsungmobile&amp;cityId=347805</url>
+      <obsdate>11/29/2015</obsdate>
+      <daycode>Sunday</daycode>
+      <sunrise>7:03 AM</sunrise>
+      <sunset>4:39 PM</sunset>
+      <daytime>
+        <txtshort>Mostly cloudy</txtshort>
+        <txtlong>Mostly cloudy with a stray flurry in the afternoon</txtlong>
+        <weathericon>07</weathericon>
+        <hightemperature>34</hightemperature>
+        <lowtemperature>17</lowtemperature>
+        <realfeelhigh>27</realfeelhigh>
+        <realfeellow>18</realfeellow>
+        <windspeed>7</windspeed>
+        <winddirection>WNW</winddirection>
+        <windgust>11</windgust>
+        <maxuv>2</maxuv>
+        <rainamount>0.00</rainamount>
+        <snowamount>0.7</snowamount>
+        <iceamount>0.00</iceamount>
+        <precipamount>0.07</precipamount>
+        <tstormprob>0</tstormprob>
+        <rainProbability>0</rainProbability>
+        <snowProbability>45</snowProbability>
+        <iceProbability>10</iceProbability>
+        <precipitationProbability>45</precipitationProbability>
+      </daytime>
+      <nighttime>
+        <txtshort>Colder with a bit of snow</txtshort>
+        <txtlong>Mostly cloudy and colder with a bit of snow</txtlong>
+        <weathericon>19</weathericon>
+        <hightemperature>34</hightemperature>
+        <lowtemperature>17</lowtemperature>
+        <realfeelhigh>19</realfeelhigh>
+        <realfeellow>7</realfeellow>
+        <windspeed>6</windspeed>
+        <winddirection>WNW</winddirection>
+        <windgust>11</windgust>
+        <maxuv>2</maxuv>
+        <rainamount>0.00</rainamount>
+        <snowamount>0.2</snowamount>
+        <iceamount>0.00</iceamount>
+        <precipamount>0.01</precipamount>
+        <tstormprob>0</tstormprob>
+        <rainProbability>0</rainProbability>
+        <snowProbability>47</snowProbability>
+        <iceProbability>0</iceProbability>
+        <precipitationProbability>56</precipitationProbability>
+      </nighttime>
+    </day>
+  </forecast>
+  <copyright>Copyright 2015 AccuWeather.com</copyright>
+  <use>This document is intended only for use by authorized licensees of AccuWeather.com. Unauthorized use is prohibited. All Rights Reserved.</use>
+  <product>samsung mobile</product>
+  <redistribution>Redistribution Prohibited.</redistribution>
+</adc_database>

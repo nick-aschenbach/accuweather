@@ -1,0 +1,27 @@
+<?xml version="1.0"  encoding="utf-8"?>
+<adc_database
+  xmlns="http://www.accuweather.com">
+  <units>
+    <temp>F</temp>
+    <dist>MI</dist>
+    <speed>MPH</speed>
+    <pres>IN</pres>
+    <prec>IN</prec>
+  </units>
+  <local>
+    <city/>
+    <state/>
+    <lat/>
+    <lon/>
+    <time/>
+    <timeZone/>
+    <obsDaylight/>
+    <currentGmtOffset/>
+    <timeZoneAbbreviation/>
+  </local>
+  <failure>Location does not exist</failure>
+  <copyright>Copyright 2015 AccuWeather.com</copyright>
+  <use>This document is intended only for use by authorized licensees of AccuWeather.com. Unauthorized use is prohibited. All Rights Reserved.</use>
+  <product>samsung mobile</product>
+  <redistribution>Redistribution Prohibited.</redistribution>
+</adc_database>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<adc_database
+  xmlns="http://www.accuweather.com">
+  <citylist us="0" intl="0" extra_cities="0"></citylist>
+  <copyright>Copyright 2015 AccuWeather.com</copyright>
+  <use>This document is intended only for use by authorized licensees of AccuWeather.com. Unauthorized use is prohibited. All Rights Reserved.</use>
+  <product>samsung mobile</product>
+  <redistribution>Redistribution Prohibited.</redistribution>
+</adc_database>
