@@ -1,28 +1,28 @@
 module Accuweather
   module Conditions
     class Units
-      attr_reader :temp, :dist, :speed, :pres, :prec
+      attr_reader :temperature, :distance, :speed, :pressure, :precipitation
 
-      def initialize(temp:, dist:, speed:, pres:, prec:)
-        @temp = temp
-        @dist = dist
+      def initialize(temperature:, distance:, speed:, pressure:, precipitation:)
+        @temperature = temperature
+        @distance = distance
         @speed = speed
-        @pres = pres
-        @prec = prec
+        @pressure = pressure
+        @precipitation = precipitation
       end
 
       def ==(other)
-        temp == other.temp &&
-          dist == other.dist &&
+        temperature == other.temperature &&
+          distance == other.distance &&
           speed == other.speed &&
-          pres == other.pres &&
-          prec == other.prec
+          pressure == other.pressure &&
+          precipitation == other.precipitation
       rescue NoMethodError
         false
       end
 
       def to_s
-        "temp: #{temp}, dist: #{dist}, speed: #{speed}, pres: #{pres}, prec: #{prec}"
+        "temperature: #{temperature}, distance: #{distance}, speed: #{speed}, pressure: #{pressure}, precipitation: #{precipitation}"
       end
     end
   end

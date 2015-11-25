@@ -6,11 +6,11 @@ describe Accuweather::Conditions::Parser do
 
   describe '#units' do
     it 'has expected units' do
-      expect(subject.units).to eq(Accuweather::Conditions::Units.new(temp: 'F',
-                                                                     dist: 'MI',
+      expect(subject.units).to eq(Accuweather::Conditions::Units.new(temperature: 'F',
+                                                                     distance: 'MI',
                                                                      speed: 'MPH',
-                                                                     pres: 'IN',
-                                                                     prec: 'IN'))
+                                                                     pressure: 'IN',
+                                                                     precipitation: 'IN'))
     end
   end
 

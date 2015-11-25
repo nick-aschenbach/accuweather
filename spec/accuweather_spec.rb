@@ -74,11 +74,11 @@ describe Accuweather do
 
       it 'returns units' do
         units = described_class.get_conditions(location_id).units
-        expect(units.temp).to eq('F')
-        expect(units.dist).to eq('MI')
+        expect(units.temperature).to eq('F')
+        expect(units.distance).to eq('MI')
         expect(units.speed).to eq('MPH')
-        expect(units.pres).to eq('IN')
-        expect(units.prec).to eq('IN')
+        expect(units.pressure).to eq('IN')
+        expect(units.precipitation).to eq('IN')
       end
 
       it 'returns local information' do

@@ -49,9 +49,9 @@ Get the units for the conditions:
 
 ```ruby
 units = Accuweather.get_conditions('cityId:53286').units
-units.temp  # => 'F'
-units.dist  # => 'MI'
-units.speed # => 'MPH'
+units.temperature  # => 'F'
+units.distance     # => 'MI'
+units.speed        # => 'MPH'
 ```
 
 Get more information on the location including time and time zone:

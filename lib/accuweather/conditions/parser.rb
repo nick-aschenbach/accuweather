@@ -7,11 +7,11 @@ module Accuweather
 
       def units
         units = @doc.css('units').first
-        Accuweather::Conditions::Units.new(temp: units.css('temp').text,
-                                           dist: units.css('dist').text,
+        Accuweather::Conditions::Units.new(temperature: units.css('temp').text,
+                                           distance: units.css('dist').text,
                                            speed: units.css('speed').text,
-                                           pres: units.css('pres').text,
-                                           prec: units.css('prec').text)
+                                           pressure: units.css('pres').text,
+                                           precipitation: units.css('prec').text)
       end
 
       def local
