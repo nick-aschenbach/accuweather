@@ -9,7 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Nick Aschenbach']
   spec.email         = ['nick.aschenbach@gmail.com']
 
-  spec.summary       = 'Access current weather report and forecasts for cities around the world'
+  spec.summary       = 'Access current weather report for cities around the world'
+  spec.description   = 'A simple web API wrapper to get weather information for cities around the world using the accuweather API. Includes
+temperature, pressure, humidity, weather text and GPS coordinates.'
   spec.homepage      = 'https://github.com/nick-aschenbach/accuweather'
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
