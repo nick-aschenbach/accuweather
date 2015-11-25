@@ -1,21 +1,27 @@
 module Accuweather
   class Location
-    attr_reader :city, :state, :location, :latitude, :longitude
+    attr_reader :id, :city, :state, :latitude, :longitude
 
-    def initialize(city:, state:, location:, latitude:, longitude:)
+    def initialize(id:, city:, state:, latitude:, longitude:)
+      @id = id
       @city = city
       @state = state
-      @location = location
       @latitude = latitude
       @longitude = longitude
     end
 
     def ==(other)
-      city == other.city &&
+      id == other.id &&
+        city == other.city &&
         state == other.state &&
-        location == other.location &&
         latitude == other.latitude &&
         longitude == other.longitude
+    rescue NoMethodError
+      false
+    end
+
+    def to_s
+      "id: #{id}, city: #{city}, state: #{state}, latitude: #{latitude}, longitude: #{longitude}"
     end
   end
 end

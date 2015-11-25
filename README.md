@@ -20,11 +20,36 @@ Or install it yourself as:
 
 ## Usage
 
+Search for an accuweather location:
+
 ```ruby
-Accuweather.city_search('vancouver')
+location_array = Accuweather.city_search('vancouver') # returns an array
+vancouver = location_array.first
+
+vancouver.id        # => 'cityId:53286'
+vancouver.city      # => 'Vancouver'
+vancouver.state     # => 'Canada (British Columbia)'
+vancouver.latitude  # => '49.2448'
+vancouver.longitude # => '123.1154'
 ```
 
-Returns a list of `Accuweather::Location`s. Each location has a `city`, `state`, `location`, `latitude` and `longitude`.
+Search for weather conditions for a given location id:
+
+```ruby
+Accuweather.get_conditions('cityId:53286').current
+```
+
+Get the units for the conditions:
+
+```ruby
+Accuweather.get_conditions('cityId:53286').units
+```
+
+Get more information on the location including time, time zone and GPS coordinates:
+
+```ruby
+Accuweather.get_conditions('cityId:53286').local
+```
 
 ## Development
 

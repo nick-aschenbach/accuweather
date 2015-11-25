@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['nick.aschenbach@gmail.com']
 
   spec.summary       = 'Access current weather report and forecasts for cities around the world'
-  spec.homepage      = 'http://github.com'
+  spec.homepage      = 'https://github.com/nick-aschenbach/accuweather'
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.require_paths = ['lib']
