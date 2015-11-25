@@ -1,6 +1,7 @@
 # Accuweather
 
-Get weather information for cities around the world using the accuweather API
+Get weather information for cities around the world using the accuweather API. Includes
+temperature, pressure, humidity, weather text and GPS coordinates.
 
 ## Installation
 
@@ -36,19 +37,38 @@ vancouver.longitude # => '123.1154'
 Search for weather conditions for a given location id:
 
 ```ruby
-Accuweather.get_conditions('cityId:53286').current
+current_weather = Accuweather.get_conditions('cityId:53286').current
+current_weather.temperature    # => '41'
+current_weather.weather_text   # => 'Partly Sunny'
+current_weather.pressure       # => '30.35'
+current_weather.humidity       # => '43%'
+current_weather.cloud_cover    # => '40%'
 ```
 
 Get the units for the conditions:
 
 ```ruby
-Accuweather.get_conditions('cityId:53286').units
+units = Accuweather.get_conditions('cityId:53286').units
+units.temp  # => 'F'
+units.dist  # => 'MI'
+units.speed # => 'MPH'
 ```
 
-Get more information on the location including time, time zone and GPS coordinates:
+Get more information on the location including time and time zone:
 
 ```ruby
-Accuweather.get_conditions('cityId:53286').local
+local = Accuweather.get_conditions('cityId:53286').local
+local.time                   # => '13:41'
+local.time_zone              # => '-8'
+local.time_zone_abbreviation # => 'PST'
+```
+
+Each `Accuweather::Conditions` object implements a `to_s` method that displays all attribute
+name, value pairs. This makes it easy to explore the API. For example:
+
+```ruby
+Accuweather.get_conditions('cityId:53286').local.to_s
+# => "city: Vancouver, state: British Columbia, lat: 49.2448, lon: -123.1154, time: 13:41, time_zone: -8, obs_daylight: 0, current_gmt_offset: -8, time_zone_abbreviation: PST"
 ```
 
 ## Development
