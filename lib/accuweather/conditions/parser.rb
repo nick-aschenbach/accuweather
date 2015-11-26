@@ -18,8 +18,8 @@ module Accuweather
         local = @doc.css('local').first
         Accuweather::Conditions::Local.new(city: local.css('city').text,
                                            state: local.css('state').text,
-                                           lat: local.css('lat').text,
-                                           lon: local.css('lon').text,
+                                           latitude: local.css('lat').text,
+                                           longitude: local.css('lon').text,
                                            time: local.css('time').text,
                                            time_zone: local.css('timeZone').text,
                                            obs_daylight: local.css('obsDaylight').text.strip,

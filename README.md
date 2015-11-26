@@ -24,7 +24,7 @@ Or install it yourself as:
 Search for an accuweather location:
 
 ```ruby
-location_array = Accuweather.city_search('vancouver') # returns an array
+location_array = Accuweather.city_search('vancouver')
 vancouver = location_array.first
 
 vancouver.id        # => 'cityId:53286'
@@ -68,7 +68,7 @@ name, value pairs. This makes it easy to explore the API. For example:
 
 ```ruby
 Accuweather.get_conditions('cityId:53286').local.to_s
-# => "city: Vancouver, state: British Columbia, lat: 49.2448, lon: -123.1154, time: 13:41, time_zone: -8, obs_daylight: 0, current_gmt_offset: -8, time_zone_abbreviation: PST"
+# => "city: Vancouver, state: British Columbia, latitude: 49.2448, longitude: -123.1154, time: 16:58, time_zone: -8, obs_daylight: 0, current_gmt_offset: -8, time_zone_abbreviation: PST"
 ```
 
 ## Development

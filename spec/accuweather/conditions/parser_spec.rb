@@ -18,8 +18,8 @@ describe Accuweather::Conditions::Parser do
     it 'has expected local data' do
       expect(subject.local).to eq(Accuweather::Conditions::Local.new(city: 'Winter Park',
                                                                      state: 'Colorado',
-                                                                     lat: '39.89166',
-                                                                     lon: '-105.7631',
+                                                                     latitude: '39.89166',
+                                                                     longitude: '-105.7631',
                                                                      time: '21:14',
                                                                      time_zone: '-7',
                                                                      obs_daylight: '0',

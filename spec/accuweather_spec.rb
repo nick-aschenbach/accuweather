@@ -2,61 +2,30 @@ require 'spec_helper'
 
 describe Accuweather do
   describe '.city_search' do
+    let(:search_location) { 'vancouver' }
+
     before do
+      fixture = load_fixture('find-city.xml')
       allow(Net::HTTP).to receive(:get)
                             .with('samsungmobile.accu-weather.com',
                                   "/widget/samsungmobile/city-find.asp?returnGeoPosition=1&location=#{search_location}")
                             .and_return(fixture)
     end
 
-    context 'one or more cities match' do
-      let(:fixture) { load_fixture('find-city.xml') }
-      let(:vancouver_wa) { Accuweather::Location.new(id: 'cityId:331419',
-                                                     city: 'Vancouver',
-                                                     state: 'Washington',
-                                                     latitude: '45.63873',
-                                                     longitude: '-122.6615') }
-      let(:vancouver_ca) { Accuweather::Location.new(id: 'cityId:53286',
-                                                     city: 'Vancouver',
-                                                     state: 'Canada (British Columbia)',
-                                                     latitude: '49.2448',
-                                                     longitude: '-123.1154') }
-      let(:search_location) { 'vancouver' }
+    it 'returns an array of cities' do
+      cities = described_class.city_search(search_location)
 
-      it 'returns an array of matching locations' do
-        expect(described_class.city_search(search_location)).to match_array([vancouver_wa, vancouver_ca])
-      end
-    end
+      expect(cities[0].id).to eq('cityId:53286')
+      expect(cities[0].city).to eq('Vancouver')
+      expect(cities[0].state).to eq('Canada (British Columbia)')
+      expect(cities[0].latitude).to eq('49.2448')
+      expect(cities[0].longitude).to eq('-123.1154')
 
-    context 'no cities match' do
-      let(:fixture) { load_fixture('find-city-no-matches.xml') }
-      let(:search_location) { 'nowhere' }
-
-      it 'returns an empty array' do
-        expect(described_class.city_search(search_location)).to eq([])
-      end
-    end
-
-    context 'an error occurs' do
-      let(:fixture) { load_fixture('find-city-no-location.xml') }
-      let(:search_location) { 'error payload' }
-
-      it 'returns an empty array' do
-        expect(described_class.city_search(search_location)).to eq([])
-      end
-    end
-
-    context 'an exception is raised' do
-      let(:fixture) { load_fixture('find-city-no-location.xml') }
-      let(:search_location) { 'error payload' }
-
-      before do
-        allow(Net::HTTP).to receive(:get).and_raise(StandardError)
-      end
-
-      it 'returns an empty array' do
-        expect(described_class.city_search(search_location)).to eq([])
-      end
+      expect(cities[1].id).to eq('cityId:331419')
+      expect(cities[1].city).to eq('Vancouver')
+      expect(cities[1].state).to eq('Washington')
+      expect(cities[1].latitude).to eq('45.63873')
+      expect(cities[1].longitude).to eq('-122.6615')
     end
   end
 
@@ -85,8 +54,8 @@ describe Accuweather do
         local = described_class.get_conditions(location_id).local
         expect(local.city).to eq('Winter Park')
         expect(local.state).to eq('Colorado')
-        expect(local.lat).to eq('39.89166')
-        expect(local.lon).to eq('-105.7631')
+        expect(local.latitude).to eq('39.89166')
+        expect(local.longitude).to eq('-105.7631')
         expect(local.time).to eq('21:14')
         expect(local.time_zone).to eq('-7')
         expect(local.obs_daylight).to eq('0')
