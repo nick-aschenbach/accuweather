@@ -10,7 +10,7 @@ require 'net/http'
 require 'nokogiri'
 
 module Accuweather
-  def self.city_search(name)
+  def self.city_search(name:)
     response = Net::HTTP.get('samsungmobile.accu-weather.com',
                              "/widget/samsungmobile/city-find.asp?returnGeoPosition=1&location=#{name}")
 
@@ -19,9 +19,10 @@ module Accuweather
     []
   end
 
-  def self.get_conditions(location_id)
+  def self.get_conditions(location_id:, metric: false)
+    metric_value = metric ? '1' : '0'
     response = Net::HTTP.get('samsungmobile.accu-weather.com',
-                             "/widget/samsungmobile/weather-data.asp?metric=0&location=#{location_id}")
+                             "/widget/samsungmobile/weather-data.asp?metric=#{metric_value}&location=#{location_id}")
 
     Accuweather::Conditions::Parser.new(response)
   rescue StandardError

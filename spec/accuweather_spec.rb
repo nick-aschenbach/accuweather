@@ -13,7 +13,7 @@ describe Accuweather do
     end
 
     it 'returns an array of cities' do
-      cities = described_class.city_search(search_location)
+      cities = described_class.city_search(name: search_location)
 
       expect(cities[0].id).to eq('cityId:53286')
       expect(cities[0].city).to eq('Vancouver')
@@ -30,6 +30,9 @@ describe Accuweather do
   end
 
   describe '.get_conditions' do
+    let(:location_id) { 'cityId:331419' }
+    let(:fixture) { load_fixture('get-conditions.xml') }
+
     before do
       allow(Net::HTTP).to receive(:get)
                             .with('samsungmobile.accu-weather.com',
@@ -38,11 +41,8 @@ describe Accuweather do
     end
 
     context 'when conditions are returned for the location' do
-      let(:location_id) { 'cityId:331419' }
-      let(:fixture) { load_fixture('get-conditions.xml') }
-
       it 'returns units' do
-        units = described_class.get_conditions(location_id).units
+        units = described_class.get_conditions(location_id: location_id).units
         expect(units.temperature).to eq('F')
         expect(units.distance).to eq('MI')
         expect(units.speed).to eq('MPH')
@@ -51,7 +51,7 @@ describe Accuweather do
       end
 
       it 'returns local information' do
-        local = described_class.get_conditions(location_id).local
+        local = described_class.get_conditions(location_id: location_id).local
         expect(local.city).to eq('Winter Park')
         expect(local.state).to eq('Colorado')
         expect(local.latitude).to eq('39.89166')
@@ -64,7 +64,7 @@ describe Accuweather do
       end
 
       it 'returns current conditions' do
-        current = described_class.get_conditions(location_id).current
+        current = described_class.get_conditions(location_id: location_id).current
         expect(current.url).to eq('http://www.accuweather.com/m/en-us/US/CO/Winter Park/current.aspx?p=samsungmobile&cityId=347805')
         expect(current.observation_time).to eq('9:14 PM')
         expect(current.pressure).to eq('30.12')
@@ -81,6 +81,41 @@ describe Accuweather do
         expect(current.uv_index).to eq('Low')
         expect(current.dewpoint).to eq('7')
         expect(current.cloud_cover).to eq('33%')
+      end
+    end
+
+    describe 'fetching metric results' do
+      context 'when not supplying a parameter' do
+        it 'sets the accuweather metric query string parameter to 0' do
+          expect(Net::HTTP).to receive(:get)
+                                .with('samsungmobile.accu-weather.com',
+                                      "/widget/samsungmobile/weather-data.asp?metric=0&location=#{location_id}")
+                                .and_return(fixture)
+
+          Accuweather.get_conditions(location_id: location_id)
+        end
+      end
+
+      context 'when metric is false' do
+        it 'sets the accuweather metric query string parameter to 0' do
+          expect(Net::HTTP).to receive(:get)
+                                 .with('samsungmobile.accu-weather.com',
+                                       "/widget/samsungmobile/weather-data.asp?metric=0&location=#{location_id}")
+                                 .and_return(fixture)
+
+          Accuweather.get_conditions(location_id: location_id, metric: false)
+        end
+      end
+
+      context 'when metric is true' do
+        it 'sets the accuweather metric query string parameter to 1' do
+          expect(Net::HTTP).to receive(:get)
+                                 .with('samsungmobile.accu-weather.com',
+                                       "/widget/samsungmobile/weather-data.asp?metric=1&location=#{location_id}")
+                                 .and_return(fixture)
+
+          Accuweather.get_conditions(location_id: location_id, metric: true)
+        end
       end
     end
   end

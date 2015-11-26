@@ -24,7 +24,7 @@ Or install it yourself as:
 Search for an accuweather location:
 
 ```ruby
-location_array = Accuweather.city_search('vancouver')
+location_array = Accuweather.city_search(name: 'vancouver')
 vancouver = location_array.first
 
 vancouver.id        # => 'cityId:53286'
@@ -37,7 +37,7 @@ vancouver.longitude # => '123.1154'
 Search for weather conditions for a given location id:
 
 ```ruby
-current_weather = Accuweather.get_conditions('cityId:53286').current
+current_weather = Accuweather.get_conditions(location_id: 'cityId:53286').current
 current_weather.temperature    # => '41'
 current_weather.weather_text   # => 'Partly Sunny'
 current_weather.pressure       # => '30.35'
@@ -48,7 +48,7 @@ current_weather.cloud_cover    # => '40%'
 Get the units for the conditions:
 
 ```ruby
-units = Accuweather.get_conditions('cityId:53286').units
+units = Accuweather.get_conditions(location_id: 'cityId:53286').units
 units.temperature  # => 'F'
 units.distance     # => 'MI'
 units.speed        # => 'MPH'
@@ -57,17 +57,23 @@ units.speed        # => 'MPH'
 Get more information on the location including time and time zone:
 
 ```ruby
-local = Accuweather.get_conditions('cityId:53286').local
+local = Accuweather.get_conditions(location_id: 'cityId:53286').local
 local.time                   # => '13:41'
 local.time_zone              # => '-8'
 local.time_zone_abbreviation # => 'PST'
+```
+
+Imperial units are returned by default, but metric results are available:
+
+```ruby
+Accuweather.get_conditions(location_id: 'cityId:53286', metric: true)
 ```
 
 Each `Accuweather::Conditions` object implements a `to_s` method that displays all attribute
 name, value pairs. This makes it easy to explore the API. For example:
 
 ```ruby
-Accuweather.get_conditions('cityId:53286').local.to_s
+Accuweather.get_conditions(location_id: 'cityId:53286').local.to_s
 # => "city: Vancouver, state: British Columbia, latitude: 49.2448, longitude: -123.1154, time: 16:58, time_zone: -8, obs_daylight: 0, current_gmt_offset: -8, time_zone_abbreviation: PST"
 ```
 

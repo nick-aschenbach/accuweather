@@ -19,7 +19,7 @@ temperature, pressure, humidity, weather text and GPS coordinates.'
 
   spec.add_development_dependency 'bundler', '~> 1.10'
   spec.add_development_dependency 'rake', '~> 10.0'
-  spec.add_development_dependency 'rspec'
+  spec.add_development_dependency 'rspec', '~> 3.4'
 
   spec.add_runtime_dependency 'nokogiri'
 end
