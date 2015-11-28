@@ -65,7 +65,6 @@ describe Accuweather do
 
       it 'returns current conditions' do
         current = described_class.get_conditions(location_id: location_id).current
-        expect(current.url).to eq('http://www.accuweather.com/m/en-us/US/CO/Winter Park/current.aspx?p=samsungmobile&cityId=347805')
         expect(current.observation_time).to eq('9:14 PM')
         expect(current.pressure).to eq('30.12')
         expect(current.temperature).to eq('26')
@@ -77,10 +76,114 @@ describe Accuweather do
         expect(current.wind_speed).to eq('8')
         expect(current.wind_direction).to eq('SE')
         expect(current.visibility).to eq('8')
-        expect(current.precip).to eq('0.00')
+        expect(current.precipitation).to eq('0.00')
         expect(current.uv_index).to eq('Low')
         expect(current.dewpoint).to eq('7')
         expect(current.cloud_cover).to eq('33%')
+      end
+
+      it 'returns first days forecast' do
+        first_day = described_class.get_conditions(location_id: location_id).forecast.first
+        expect(first_day.date).to eq('11/23/2015')
+        expect(first_day.day_of_week).to eq('Monday')
+        expect(first_day.sunrise).to eq('6:57 AM')
+        expect(first_day.sunset).to eq('4:42 PM')
+
+        daytime = first_day.daytime
+        expect(daytime.weather_text).to eq('Partly sunny')
+        expect(daytime.weather_text_long).to eq('Partly sunny')
+        expect(daytime.weather_icon).to eq('03')
+        expect(daytime.high_temperature).to eq('44')
+        expect(daytime.low_temperature).to eq('11')
+        expect(daytime.real_feel_high).to eq('47')
+        expect(daytime.real_feel_low).to eq('3')
+        expect(daytime.wind_speed).to eq('5')
+        expect(daytime.wind_direction).to eq('W')
+        expect(daytime.wind_gust).to eq('11')
+        expect(daytime.max_uv).to eq('3')
+        expect(daytime.rain_amount).to eq('0.00')
+        expect(daytime.snow_amount).to eq('0.0')
+        expect(daytime.ice_amount).to eq('0.00')
+        expect(daytime.precipitation_amount).to eq('0.00')
+        expect(daytime.thunderstorm_probability).to eq('0')
+        expect(daytime.rain_probability).to eq('0')
+        expect(daytime.snow_probability).to eq('0')
+        expect(daytime.ice_probability).to eq('0')
+        expect(daytime.precipitation_probability).to eq('0')
+
+        nighttime = first_day.nighttime
+        expect(nighttime.weather_text).to eq('Mainly clear')
+        expect(nighttime.weather_text_long).to eq('Mainly clear')
+        expect(nighttime.weather_icon).to eq('34')
+        expect(nighttime.high_temperature).to eq('44')
+        expect(nighttime.low_temperature).to eq('11')
+        expect(nighttime.real_feel_high).to eq('30')
+        expect(nighttime.real_feel_low).to eq('13')
+        expect(nighttime.wind_speed).to eq('3')
+        expect(nighttime.wind_direction).to eq('W')
+        expect(nighttime.wind_gust).to eq('7')
+        expect(nighttime.max_uv).to eq('3')
+        expect(nighttime.rain_amount).to eq('0.00')
+        expect(nighttime.snow_amount).to eq('0.0')
+        expect(nighttime.ice_amount).to eq('0.00')
+        expect(nighttime.precipitation_amount).to eq('0.00')
+        expect(nighttime.thunderstorm_probability).to eq('0')
+        expect(nighttime.rain_probability).to eq('0')
+        expect(nighttime.snow_probability).to eq('0')
+        expect(nighttime.ice_probability).to eq('0')
+        expect(nighttime.precipitation_probability).to eq('0')
+      end
+
+      it 'returns last days forecast' do
+        last_day = described_class.get_conditions(location_id: location_id).forecast.last
+        expect(last_day.date).to eq('11/29/2015')
+        expect(last_day.day_of_week).to eq('Sunday')
+        expect(last_day.sunrise).to eq('7:03 AM')
+        expect(last_day.sunset).to eq('4:39 PM')
+
+        daytime = last_day.daytime
+        expect(daytime.weather_text).to eq('Mostly cloudy')
+        expect(daytime.weather_text_long).to eq('Mostly cloudy with a stray flurry in the afternoon')
+        expect(daytime.weather_icon).to eq('07')
+        expect(daytime.high_temperature).to eq('34')
+        expect(daytime.low_temperature).to eq('17')
+        expect(daytime.real_feel_high).to eq('27')
+        expect(daytime.real_feel_low).to eq('18')
+        expect(daytime.wind_speed).to eq('7')
+        expect(daytime.wind_direction).to eq('WNW')
+        expect(daytime.wind_gust).to eq('11')
+        expect(daytime.max_uv).to eq('2')
+        expect(daytime.rain_amount).to eq('0.10')
+        expect(daytime.snow_amount).to eq('0.7')
+        expect(daytime.ice_amount).to eq('0.20')
+        expect(daytime.precipitation_amount).to eq('0.07')
+        expect(daytime.thunderstorm_probability).to eq('0')
+        expect(daytime.rain_probability).to eq('0')
+        expect(daytime.snow_probability).to eq('45')
+        expect(daytime.ice_probability).to eq('10')
+        expect(daytime.precipitation_probability).to eq('45')
+
+        nighttime = last_day.nighttime
+        expect(nighttime.weather_text).to eq('Colder with a bit of snow')
+        expect(nighttime.weather_text_long).to eq('Mostly cloudy and colder with a bit of snow')
+        expect(nighttime.weather_icon).to eq('19')
+        expect(nighttime.high_temperature).to eq('34')
+        expect(nighttime.low_temperature).to eq('17')
+        expect(nighttime.real_feel_high).to eq('19')
+        expect(nighttime.real_feel_low).to eq('7')
+        expect(nighttime.wind_speed).to eq('6')
+        expect(nighttime.wind_direction).to eq('WNW')
+        expect(nighttime.wind_gust).to eq('11')
+        expect(nighttime.max_uv).to eq('2')
+        expect(nighttime.rain_amount).to eq('0.00')
+        expect(nighttime.snow_amount).to eq('0.2')
+        expect(nighttime.ice_amount).to eq('0.00')
+        expect(nighttime.precipitation_amount).to eq('0.01')
+        expect(nighttime.thunderstorm_probability).to eq('0')
+        expect(nighttime.rain_probability).to eq('0')
+        expect(nighttime.snow_probability).to eq('47')
+        expect(nighttime.ice_probability).to eq('0')
+        expect(nighttime.precipitation_probability).to eq('56')
       end
     end
 
@@ -88,9 +191,9 @@ describe Accuweather do
       context 'when not supplying a parameter' do
         it 'sets the accuweather metric query string parameter to 0' do
           expect(Net::HTTP).to receive(:get)
-                                .with('samsungmobile.accu-weather.com',
-                                      "/widget/samsungmobile/weather-data.asp?metric=0&location=#{location_id}")
-                                .and_return(fixture)
+                                 .with('samsungmobile.accu-weather.com',
+                                       "/widget/samsungmobile/weather-data.asp?metric=0&location=#{location_id}")
+                                 .and_return(fixture)
 
           Accuweather.get_conditions(location_id: location_id)
         end

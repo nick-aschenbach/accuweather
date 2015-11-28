@@ -423,9 +423,9 @@
         <winddirection>WNW</winddirection>
         <windgust>11</windgust>
         <maxuv>2</maxuv>
-        <rainamount>0.00</rainamount>
+        <rainamount>0.10</rainamount>
         <snowamount>0.7</snowamount>
-        <iceamount>0.00</iceamount>
+        <iceamount>0.20</iceamount>
         <precipamount>0.07</precipamount>
         <tstormprob>0</tstormprob>
         <rainProbability>0</rainProbability>

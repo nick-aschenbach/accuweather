@@ -45,7 +45,7 @@ describe Accuweather::Conditions::Units do
   end
 
   describe '#to_s' do
-    it 'returns a string repressureentation of the object' do
+    it 'returns a string representation of the object' do
       expect(subject.to_s).to eq('temperature: F, distance: MI, speed: MPH, pressure: IN, precipitation: IN')
     end
   end

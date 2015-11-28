@@ -30,8 +30,7 @@ module Accuweather
 
       def current
         current = @doc.css('currentconditions').first
-        Accuweather::Conditions::Current.new(url: current.css('url').text,
-                                             observation_time: current.css('observationtime').text,
+        Accuweather::Conditions::Current.new(observation_time: current.css('observationtime').text,
                                              pressure: current.css('pressure').text,
                                              temperature: current.css('temperature').text,
                                              real_feel: current.css('realfeel').text,
@@ -42,11 +41,51 @@ module Accuweather
                                              wind_speed: current.css('windspeed').text,
                                              wind_direction: current.css('winddirection').text,
                                              visibility: current.css('visibility').text,
-                                             precip: current.css('precip').text,
+                                             precipitation: current.css('precip').text,
                                              uv_index: current.css('uvindex').text,
                                              dewpoint: current.css('dewpoint').text,
                                              cloud_cover: current.css('cloudcover').text,
         )
+      end
+
+
+      def forecast
+        @doc.css('day').map do |forecast_day|
+          day = extract_forcast_time(forecast_day, 'daytime')
+          night = extract_forcast_time(forecast_day, 'nighttime')
+
+          Accuweather::Conditions::ForecastDay.new(date: forecast_day.css('obsdate').text,
+                                                   day_of_week: forecast_day.css('daycode').text,
+                                                   sunrise: forecast_day.css('sunrise').text,
+                                                   sunset: forecast_day.css('sunset').text,
+                                                   daytime: day,
+                                                   nighttime: night)
+        end
+      end
+
+      private
+
+      def extract_forcast_time(forecast_day, day_or_night)
+        Accuweather::Conditions::ForecastWeather.new(weather_text: forecast_day.css("#{day_or_night}/txtshort").text,
+                                                     weather_text_long: forecast_day.css("#{day_or_night}/txtlong").text,
+                                                     weather_icon: forecast_day.css("#{day_or_night}/weathericon").text,
+                                                     high_temperature: forecast_day.css("#{day_or_night}/hightemperature").text,
+                                                     low_temperature: forecast_day.css("#{day_or_night}/lowtemperature").text,
+                                                     real_feel_high: forecast_day.css("#{day_or_night}/realfeelhigh").text,
+                                                     real_feel_low: forecast_day.css("#{day_or_night}/realfeellow").text,
+                                                     wind_speed: forecast_day.css("#{day_or_night}/windspeed").text,
+                                                     wind_direction: forecast_day.css("#{day_or_night}/winddirection").text,
+                                                     wind_gust: forecast_day.css("#{day_or_night}/windgust").text,
+                                                     max_uv: forecast_day.css("#{day_or_night}/maxuv").text,
+                                                     rain_amount: forecast_day.css("#{day_or_night}/rainamount").text,
+                                                     snow_amount: forecast_day.css("#{day_or_night}/snowamount").text,
+                                                     ice_amount: forecast_day.css("#{day_or_night}/iceamount").text,
+                                                     precipitation_amount: forecast_day.css("#{day_or_night}/precipamount").text,
+                                                     thunderstorm_probability: forecast_day.css("#{day_or_night}/tstormprob").text,
+                                                     rain_probability: forecast_day.css("#{day_or_night}/rainProbability").text,
+                                                     snow_probability: forecast_day.css("#{day_or_night}/snowProbability").text,
+                                                     ice_probability: forecast_day.css("#{day_or_night}/iceProbability").text,
+                                                     precipitation_probability: forecast_day.css("#{day_or_night}/precipitationProbability").text)
       end
     end
   end

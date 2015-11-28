@@ -21,7 +21,7 @@ Or install it yourself as:
 
 ## Usage
 
-Search for an accuweather location:
+Search for a location:
 
 ```ruby
 location_array = Accuweather.city_search(name: 'vancouver')
@@ -44,6 +44,24 @@ current_weather.pressure       # => '30.35'
 current_weather.humidity       # => '43%'
 current_weather.cloud_cover    # => '40%'
 ```
+
+Get forecast details:
+
+```ruby
+weather_forecast = Accuweather.get_conditions(location_id: 'cityId:53286').forecast
+last_forecast_day = weather_forecast.last
+last_forecast_day.date        # => "12/3/2015"
+last_forecast_day.day_of_week # => "Thursday"
+last_forecast_day.sunrise     # => "7:49 AM"
+last_forecast_day.sunset      # => "4:16 PM"
+
+# Get the dates, daytime high and nighttime low temperatures
+weather_forecast.map(&:date)                             #  => ["11/27/2015", "11/28/2015", "11/29/2015", "11/30/2015", "12/1/2015", "12/2/2015", "12/3/2015"]
+weather_forecast.map(&:daytime).map(&:high_temperature)  # => ["45", "45", "47", "44", "44", "48", "48"]
+weather_forecast.map(&:nighttime).map(&:low_temperature) # => ["27", "28", "31", "32", "40", "42", "36"]
+```
+
+See `Accuview::Conditions::ForecastWeather` class for a full list of attributes for daytime and nighttime forecasts.
 
 Get the units for the conditions:
 

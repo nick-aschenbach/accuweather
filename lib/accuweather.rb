@@ -5,6 +5,8 @@ require 'accuweather/conditions/parser'
 require 'accuweather/conditions/units'
 require 'accuweather/conditions/local'
 require 'accuweather/conditions/current'
+require 'accuweather/conditions/forecast_day'
+require 'accuweather/conditions/forecast_weather'
 
 require 'net/http'
 require 'nokogiri'
