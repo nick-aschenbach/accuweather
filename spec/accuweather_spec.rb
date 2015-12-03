@@ -27,6 +27,18 @@ describe Accuweather do
       expect(cities[1].latitude).to eq('45.63873')
       expect(cities[1].longitude).to eq('-122.6615')
     end
+
+    context 'when an error is raised' do
+      before do
+        allow(Net::HTTP).to receive(:get).and_raise(StandardError.new('foobar'))
+      end
+
+      it 'is rebranded and reraised as Accuweather::Error' do
+        expect {
+          described_class.city_search(name: search_location)
+        }.to raise_error(Accuweather::Error, 'StandardError: foobar')
+      end
+    end
   end
 
   describe '.get_conditions' do
@@ -195,7 +207,7 @@ describe Accuweather do
                                        "/widget/samsungmobile/weather-data.asp?metric=0&location=#{location_id}")
                                  .and_return(fixture)
 
-          Accuweather.get_conditions(location_id: location_id)
+          described_class.get_conditions(location_id: location_id)
         end
       end
 
@@ -217,8 +229,20 @@ describe Accuweather do
                                        "/widget/samsungmobile/weather-data.asp?metric=1&location=#{location_id}")
                                  .and_return(fixture)
 
-          Accuweather.get_conditions(location_id: location_id, metric: true)
+          described_class.get_conditions(location_id: location_id, metric: true)
         end
+      end
+    end
+
+    context 'when an error is raised' do
+      before do
+        allow(Net::HTTP).to receive(:get).and_raise(StandardError.new('foobar'))
+      end
+
+      it 'is rebranded and reraised as Accuweather::Error' do
+        expect {
+          described_class.get_conditions(location_id: location_id, metric: true)
+        }.to raise_error(Accuweather::Error, 'StandardError: foobar')
       end
     end
   end
