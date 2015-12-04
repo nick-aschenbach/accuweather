@@ -1,5 +1,6 @@
 require 'accuweather/version'
 require 'accuweather/location/city'
+require 'accuweather/location/cache'
 require 'accuweather/location/parser'
 require 'accuweather/conditions/parser'
 require 'accuweather/conditions/units'
@@ -15,6 +16,10 @@ module Accuweather
   class Error < StandardError; end
 
   def self.city_search(name:)
+    @cache ||= Accuweather::Location::Cache.new
+    cache_result = @cache.cities(name: name)
+    return cache_result unless cache_result == []
+
     response = Net::HTTP.get('samsungmobile.accu-weather.com',
                              "/widget/samsungmobile/city-find.asp?returnGeoPosition=1&location=#{name}")
 

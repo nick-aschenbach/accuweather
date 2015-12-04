@@ -2,41 +2,74 @@ require 'spec_helper'
 
 describe Accuweather do
   describe '.city_search' do
-    let(:search_location) { 'vancouver' }
+    let(:data_to_compress) { <<-CSV }
+cityId:351409|Seattle|Washington|47.60622|-122.3321
+cityId:60449|Santiago|Chile (Region Metropolitana)|-33.44643|-70.65901
+cityId:129846|Santiago|Ecuador (Pichincha)|-0.2295|-78.52428
+    CSV
+    let(:compressed_data) { Zlib::Deflate.deflate(data_to_compress) }
 
     before do
-      fixture = load_fixture('find-city.xml')
-      allow(Net::HTTP).to receive(:get)
-                            .with('samsungmobile.accu-weather.com',
-                                  "/widget/samsungmobile/city-find.asp?returnGeoPosition=1&location=#{search_location}")
-                            .and_return(fixture)
+      allow(File).to receive(:read).with(Accuweather::Location::Cache::CITIES_CSV_FILE).and_return(compressed_data)
     end
 
-    it 'returns an array of cities' do
-      cities = described_class.city_search(name: search_location)
+    context 'when the search location is in the location cache' do
+      let(:search_location) { 'seattle' }
 
-      expect(cities[0].id).to eq('cityId:53286')
-      expect(cities[0].city).to eq('Vancouver')
-      expect(cities[0].state).to eq('Canada (British Columbia)')
-      expect(cities[0].latitude).to eq('49.2448')
-      expect(cities[0].longitude).to eq('-123.1154')
+      it 'returns a list of expected locations from the cache' do
+        seatte = Accuweather::Location::City.new(id: 'cityId:351409',
+                                                 city: 'Seattle',
+                                                 state: 'Washington',
+                                                 latitude: '47.60622',
+                                                 longitude: '-122.3321')
 
-      expect(cities[1].id).to eq('cityId:331419')
-      expect(cities[1].city).to eq('Vancouver')
-      expect(cities[1].state).to eq('Washington')
-      expect(cities[1].latitude).to eq('45.63873')
-      expect(cities[1].longitude).to eq('-122.6615')
-    end
-
-    context 'when an error is raised' do
-      before do
-        allow(Net::HTTP).to receive(:get).and_raise(StandardError.new('foobar'))
+        expect(described_class.city_search(name: search_location)).to eq([seatte])
       end
 
-      it 'is rebranded and reraised as Accuweather::Error' do
-        expect {
-          described_class.city_search(name: search_location)
-        }.to raise_error(Accuweather::Error, 'StandardError: foobar')
+      it 'does not make a HTTP request' do
+        expect(Net::HTTP).to_not receive(:get)
+
+        described_class.city_search(name: search_location)
+      end
+    end
+
+    context 'when the search location is not in the location cache' do
+      let(:search_location) { 'vancouver' }
+
+      before do
+        fixture = load_fixture('find-city.xml')
+        allow(Net::HTTP).to receive(:get)
+                              .with('samsungmobile.accu-weather.com',
+                                    "/widget/samsungmobile/city-find.asp?returnGeoPosition=1&location=#{search_location}")
+                              .and_return(fixture)
+      end
+
+      it 'returns an array of cities from the web service' do
+        cities = described_class.city_search(name: search_location)
+
+        expect(cities[0].id).to eq('cityId:53286')
+        expect(cities[0].city).to eq('Vancouver')
+        expect(cities[0].state).to eq('Canada (British Columbia)')
+        expect(cities[0].latitude).to eq('49.2448')
+        expect(cities[0].longitude).to eq('-123.1154')
+
+        expect(cities[1].id).to eq('cityId:331419')
+        expect(cities[1].city).to eq('Vancouver')
+        expect(cities[1].state).to eq('Washington')
+        expect(cities[1].latitude).to eq('45.63873')
+        expect(cities[1].longitude).to eq('-122.6615')
+      end
+
+      context 'when an error is raised' do
+        before do
+          allow(Net::HTTP).to receive(:get).and_raise(StandardError.new('foobar'))
+        end
+
+        it 'is rebranded and reraised as Accuweather::Error' do
+          expect {
+            described_class.city_search(name: search_location)
+          }.to raise_error(Accuweather::Error, 'StandardError: foobar')
+        end
       end
     end
   end
