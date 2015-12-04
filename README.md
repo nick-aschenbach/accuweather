@@ -1,7 +1,8 @@
 # Accuweather
 
-Get weather information for cities around the world using the accuweather API. Includes
-temperature, pressure, humidity, weather text and GPS coordinates.
+A simple wrapper around the accuweather web API written in Ruby
+
+Get weather information for cities around the world. Includes current current conditions for temperature, pressure and humidity. Forecasts include temperature highs, lows, "real feels", UV, wind speed and direction, rain, snow, ice probabilities and amounts. The web API returns seven days of forecasts with estimates for both day and nighttime.
 
 ## Installation
 
@@ -21,7 +22,7 @@ Or install it yourself as:
 
 ## Usage
 
-Search for a location:
+Search for a city location to determine its id:
 
 ```ruby
 location_array = Accuweather.city_search(name: 'vancouver')
@@ -81,7 +82,7 @@ local.time_zone              # => '-8'
 local.time_zone_abbreviation # => 'PST'
 ```
 
-Imperial units are returned by default, but metric results are available:
+English units are returned by default, but metric results are available:
 
 ```ruby
 Accuweather.get_conditions(location_id: 'cityId:53286', metric: true)
