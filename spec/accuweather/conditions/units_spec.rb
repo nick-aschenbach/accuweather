@@ -27,6 +27,7 @@ describe Accuweather::Conditions::Units do
                                                                  precipitation: 'IN'))
       end
     end
+
     context 'with two objects that have that vary' do
       it 'returns false' do
         expect(subject).to_not eq(Accuweather::Conditions::Units.new(temperature: 'C',

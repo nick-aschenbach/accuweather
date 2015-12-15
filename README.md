@@ -4,6 +4,8 @@ A simple wrapper around the accuweather web API written in Ruby
 
 Get weather information for cities around the world. Includes current current conditions for temperature, pressure and humidity. Forecasts include temperature highs, lows, "real feels", UV, wind speed and direction, rain, snow, ice probabilities and amounts. The web API returns seven days of forecasts with estimates for both day and nighttime.
 
+Also includes local times for the rise and set of celestial bodies in our solar system including the sun, moon, mercury, venus, mars, jupiter, saturn, uranus, neptune and pluto.
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -94,6 +96,17 @@ name, value pairs. This makes it easy to explore the API. For example:
 ```ruby
 Accuweather.get_conditions(location_id: 'cityId:53286').local.to_s
 # => "city: Vancouver, state: British Columbia, latitude: 49.2448, longitude: -123.1154, time: 16:58, time_zone: -8, obs_daylight: 0, current_gmt_offset: -8, time_zone_abbreviation: PST"
+```
+
+Get local times for the rise and set of celestial bodies in our solar system:
+
+```ruby
+planets = Accuweather.get_conditions(location_id: 'cityId:53286').planets
+planets.sunrise  # => "8:00 AM"
+planets.moonrise # => "12/14/2015 10:14:00 AM"
+planets.sunset   # => "4:14 PM"
+planets.marsrise # => "10:16 AM"
+planets.plutoset # => "2:04 AM"
 ```
 
 ## Development

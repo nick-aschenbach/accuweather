@@ -28,6 +28,31 @@ describe Accuweather::Conditions::Parser do
     end
   end
 
+  describe '#planets' do
+    it 'returns the planet, moon and sun rise and set times' do
+      expect(subject.planets).to eq(Accuweather::Conditions::Planets.new(sunrise: '6:57 AM',
+                                                                         sunset: '4:42 PM',
+                                                                         moonrise: '11/23/2015 3:30:00 PM',
+                                                                         moonset: '11/24/2015 5:15:00 AM',
+                                                                         mercuryrise: '2:14 PM',
+                                                                         mercuryset: '11:48 PM',
+                                                                         venusrise: '10:09 AM',
+                                                                         venusset: '9:46 PM',
+                                                                         marsrise: '9:21 AM',
+                                                                         marsset: '9:20 PM',
+                                                                         jupiterrise: '8:01 AM',
+                                                                         jupiterset: '8:41 PM',
+                                                                         saturnrise: '2:22 PM',
+                                                                         saturnset: '12:10 AM',
+                                                                         uranusrise: '9:36 PM',
+                                                                         uranusset: '10:23 AM',
+                                                                         neptunerise: '8:01 PM',
+                                                                         neptuneset: '7:03 AM',
+                                                                         plutorise: '5:06 PM',
+                                                                         plutoset: '2:44 AM'))
+    end
+  end
+
   describe '#current' do
     it 'returns expected current conditions' do
       expect(subject.current).to eq(Accuweather::Conditions::Current.new(observation_time: '9:14 PM',

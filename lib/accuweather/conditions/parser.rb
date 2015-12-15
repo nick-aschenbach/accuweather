@@ -28,6 +28,32 @@ module Accuweather
         )
       end
 
+      def planets
+        planets = @doc.css('planets').first
+
+        Accuweather::Conditions::Planets.new(
+          sunrise: planets.css('sun').first['rise'],
+          sunset: planets.css('sun').first['set'],
+          moonrise: planets.css('moon').first['rise'],
+          moonset: planets.css('moon').first['set'],
+          mercuryrise: planets.css('mercury').first['rise'],
+          mercuryset: planets.css('mercury').first['set'],
+          venusrise: planets.css('venus').first['rise'],
+          venusset: planets.css('venus').first['set'],
+          marsrise: planets.css('mars').first['rise'],
+          marsset: planets.css('mars').first['set'],
+          jupiterrise: planets.css('jupiter').first['rise'],
+          jupiterset: planets.css('jupiter').first['set'],
+          saturnrise: planets.css('saturn').first['rise'],
+          saturnset: planets.css('saturn').first['set'],
+          uranusrise: planets.css('uranus').first['rise'],
+          uranusset: planets.css('uranus').first['set'],
+          neptunerise: planets.css('neptune').first['rise'],
+          neptuneset: planets.css('neptune').first['set'],
+          plutorise: planets.css('pluto').first['rise'],
+          plutoset: planets.css('pluto').first['set'])
+      end
+
       def current
         current = @doc.css('currentconditions').first
         Accuweather::Conditions::Current.new(observation_time: current.css('observationtime').text,

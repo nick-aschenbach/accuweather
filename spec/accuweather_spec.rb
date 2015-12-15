@@ -107,6 +107,30 @@ cityId:129846|Santiago|Ecuador (Pichincha)|-0.2295|-78.52428
         expect(local.current_gmt_offset).to eq('-7')
         expect(local.time_zone_abbreviation).to eq('MST')
       end
+      
+      it 'returns the moon and planet rise and set times' do
+        planets = described_class.get_conditions(location_id: location_id).planets
+        expect(planets.sunrise).to eq('6:57 AM')
+        expect(planets.sunset).to eq('4:42 PM')
+        expect(planets.moonrise).to eq('11/23/2015 3:30:00 PM')
+        expect(planets.moonset).to eq('11/24/2015 5:15:00 AM')
+        expect(planets.mercuryrise).to eq('2:14 PM')
+        expect(planets.mercuryset).to eq('11:48 PM')
+        expect(planets.venusrise).to eq('10:09 AM')
+        expect(planets.venusset).to eq('9:46 PM')
+        expect(planets.marsrise).to eq('9:21 AM')
+        expect(planets.marsset).to eq('9:20 PM')
+        expect(planets.jupiterrise).to eq('8:01 AM')
+        expect(planets.jupiterset).to eq('8:41 PM')
+        expect(planets.saturnrise).to eq('2:22 PM')
+        expect(planets.saturnset).to eq('12:10 AM')
+        expect(planets.uranusrise).to eq('9:36 PM')
+        expect(planets.uranusset).to eq('10:23 AM')
+        expect(planets.neptunerise).to eq('8:01 PM')
+        expect(planets.neptuneset).to eq('7:03 AM')
+        expect(planets.plutorise).to eq('5:06 PM')
+        expect(planets.plutoset).to eq('2:44 AM')
+      end
 
       it 'returns current conditions' do
         current = described_class.get_conditions(location_id: location_id).current
